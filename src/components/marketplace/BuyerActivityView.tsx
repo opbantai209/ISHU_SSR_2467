@@ -133,21 +133,18 @@ export const BuyerActivityView: React.FC<BuyerActivityViewProps> = ({
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 font-sans">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 font-sans space-y-8">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
-          <h1 className="text-3xl font-black text-slate-900 tracking-tight flex items-center gap-3">
-            <Layout className="w-8 h-8 text-indigo-600" />
-            My Buyer Activity
-          </h1>
-          <p className="text-slate-500 mt-1">Manage your project requests, proposals, and ongoing collaborations.</p>
+          <h1 className="text-3xl font-bold text-fiverr-dark tracking-tight">My Buyer Activity</h1>
+          <p className="text-xs text-slate-500 mt-1">Manage your project requests, proposals, and ongoing collaborations.</p>
         </div>
 
         <button 
           onClick={() => navigate('/post-project')}
-          className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-md shadow-indigo-600/20"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl transition-all shadow-xs cursor-pointer text-xs"
         >
-          <PlusCircle className="w-5 h-5" />
+          <PlusCircle className="w-4 h-4" />
           <span>Post New Project</span>
         </button>
       </div>
@@ -156,18 +153,18 @@ export const BuyerActivityView: React.FC<BuyerActivityViewProps> = ({
         {/* MAIN ACTIVITY AREA */}
         <div className="flex-1 w-full space-y-6">
           {/* TABS */}
-          <div className="bg-white rounded-2xl border border-slate-200/80 p-1 flex items-center gap-1 shadow-xs max-w-fit">
+          <div className="flex rounded-2xl bg-slate-200/70 p-1 w-fit">
             <button 
               onClick={() => setActiveTab('projects')}
-              className={`px-6 py-2.5 rounded-xl text-sm font-bold transition-all ${activeTab === 'projects' ? 'bg-indigo-50 text-indigo-700 shadow-sm' : 'text-slate-500 hover:bg-slate-50'}`}
+              className={`px-6 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${activeTab === 'projects' ? 'bg-white text-fiverr-dark shadow-sm' : 'text-fiverr-dark hover:text-fiverr-dark'}`}
             >
-              Projects
+              PROJECTS
             </button>
             <button 
               onClick={() => setActiveTab('offers')}
-              className={`px-6 py-2.5 rounded-xl text-sm font-bold transition-all ${activeTab === 'offers' ? 'bg-indigo-50 text-indigo-700 shadow-sm' : 'text-slate-500 hover:bg-slate-50'}`}
+              className={`px-6 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${activeTab === 'offers' ? 'bg-emerald-600 text-white shadow-sm' : 'text-fiverr-dark hover:text-fiverr-dark'}`}
             >
-              Offers
+              OFFERS
             </button>
           </div>
 
@@ -176,7 +173,7 @@ export const BuyerActivityView: React.FC<BuyerActivityViewProps> = ({
               {/* FILTERS AND SEARCH */}
               <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-xs space-y-5">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+                  <div className="flex flex-wrap items-center gap-2">
                     {[
                       'All Projects', 
                       'Open for Proposals', 
@@ -189,7 +186,7 @@ export const BuyerActivityView: React.FC<BuyerActivityViewProps> = ({
                       <button
                         key={f}
                         onClick={() => setProjectFilter(f)}
-                        className={`shrink-0 px-4 py-1.5 rounded-full text-xs font-bold border transition-all ${projectFilter === f ? 'bg-indigo-600 text-white border-indigo-600 shadow-sm' : 'bg-slate-50 text-slate-600 border-slate-200 hover:border-slate-300'}`}
+                        className={`px-3.5 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer ${projectFilter === f ? 'bg-slate-900 text-white border-slate-900 shadow-xs' : 'bg-slate-50 text-fiverr-dark border-slate-200 hover:bg-slate-100'}`}
                       >
                         {f}
                       </button>
@@ -204,7 +201,7 @@ export const BuyerActivityView: React.FC<BuyerActivityViewProps> = ({
                     placeholder="Search your projects by title or description..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none transition-all"
+                    className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all font-medium text-slate-800 placeholder:text-slate-400"
                   />
                 </div>
               </div>

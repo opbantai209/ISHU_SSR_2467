@@ -218,8 +218,8 @@ export const WorkstreamActionsPanel: React.FC<WorkstreamActionsPanelProps> = ({
         )}
 
         {isSeller && invoiceAlreadyPaid && canSendProposal && (
-          <div className="p-3 bg-emerald-50/80 border border-emerald-200 rounded-2xl text-[11px] text-emerald-800 flex items-start gap-2">
-            <FileSignature className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+          <div className="p-3 bg-emerald-50/80 border border-emerald-200 rounded-2xl text-xs font-medium text-emerald-800 flex items-center gap-2">
+            <FileSignature className="w-4 h-4 text-emerald-600 shrink-0" />
             <span>
               <strong>Invoice Paid!</strong> WorkStream remains open for chat and you can now send a <strong>New Proposal</strong> in the composer below for follow-on work.
             </span>

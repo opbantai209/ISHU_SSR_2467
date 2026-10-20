@@ -405,8 +405,8 @@ export const WorkstreamActivityStream: React.FC<WorkstreamActivityStreamProps> =
     const existingReply = meta.reply || orderReview?.reply;
 
     return (
-      <div key={uniqueKey} className="flex justify-center my-3">
-        <div className="w-full max-w-xl bg-white border border-slate-200/90 rounded-2xl shadow-xs hover:shadow-sm transition-all overflow-hidden">
+      <div key={uniqueKey} className="flex justify-start my-3">
+        <div className="w-full bg-white border border-slate-200/90 rounded-2xl shadow-xs hover:shadow-sm transition-all overflow-hidden">
           {/* Top Category Strip */}
           <div className={`px-5 py-2.5 flex items-center justify-between gap-3 ${info.headerCls}`}>
             <div className="flex items-center gap-2.5 min-w-0">
@@ -763,7 +763,7 @@ export const WorkstreamActivityStream: React.FC<WorkstreamActivityStreamProps> =
   ];
 
   return (
-    <div className="flex-1 flex flex-col overflow-hidden bg-slate-50/50">
+    <div className="flex flex-col bg-slate-50/50">
       {/* FIVERR-STYLE ACTIVITY FILTER BAR */}
       <div className="px-4 py-2 bg-white border-b border-slate-200/90 flex items-center justify-between gap-2 overflow-x-auto shrink-0 scrollbar-none">
         <div className="flex items-center gap-1.5 p-1 bg-slate-100/80 rounded-xl">
@@ -790,7 +790,7 @@ export const WorkstreamActivityStream: React.FC<WorkstreamActivityStreamProps> =
       </div>
 
       {/* TIMELINE MESSAGES STREAM */}
-      <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
+      <div className="p-4 sm:p-6 space-y-4">
         {filteredMessages.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16 text-center text-slate-400 space-y-2">
             <Activity className="w-8 h-8 text-slate-300" />
@@ -878,12 +878,12 @@ export const WorkstreamActivityStream: React.FC<WorkstreamActivityStreamProps> =
                       isFailed
                         ? 'bg-rose-50 border border-rose-300 text-rose-900 rounded-tr-none'
                         : isMe
-                          ? 'bg-slate-900 text-white rounded-tr-none shadow-2xs'
+                          ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-tr-none shadow-sm'
                           : 'bg-white border border-slate-200 text-slate-800 rounded-tl-none shadow-xs'
                     }`}>
                       {msg.type === 'file' && msg.fileInfo ? (
                         <div className="flex items-center gap-3">
-                          <div className={`p-2.5 rounded-xl ${isFailed ? 'bg-rose-100 text-rose-700' : isMe ? 'bg-white/10 text-emerald-400' : 'bg-emerald-50 text-emerald-600'}`}>
+                          <div className={`p-2.5 rounded-xl ${isFailed ? 'bg-rose-100 text-rose-700' : isMe ? 'bg-white/20 text-white' : 'bg-emerald-50 text-emerald-600'}`}>
                             <FileText className="w-4 h-4" />
                           </div>
                           <div className="flex-1 min-w-0">
