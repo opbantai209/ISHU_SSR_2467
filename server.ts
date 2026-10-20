@@ -1429,18 +1429,18 @@ if (IS_PRODUCTION && process.env.ADMIN_INITIAL_PASSWORD && process.env.ADMIN_INI
 
 
 // Initial Data Seeds & Persistent Storage Engine
-export let users: User[] = SEED_USERS.map(u => ({
+export let users: User[] = (SEED_USERS as any[]).map(u => ({
   ...u,
   sessionVersion: u.sessionVersion || 1,
   knownDevices: u.knownDevices || ['dev_default_session']
 }));
 
-export let gigs: Gig[] = [...SEED_GIGS];
-export let orders: Order[] = [...SEED_ORDERS];
-export let projects: Project[] = [...SEED_PROJECTS];
-export let proposals: Proposal[] = [...SEED_PROPOSALS];
-export let reviews: Review[] = [...SEED_REVIEWS];
-export let messages: Message[] = [...SEED_MESSAGES];
+export let gigs: Gig[] = [...SEED_GIGS] as any;
+export let orders: Order[] = [...SEED_ORDERS] as any;
+export let projects: Project[] = [...SEED_PROJECTS] as any;
+export let proposals: Proposal[] = [...SEED_PROPOSALS] as any;
+export let reviews: Review[] = [...SEED_REVIEWS] as any;
+export let messages: Message[] = [...SEED_MESSAGES] as any;
 
 // Initialize default wallets for seeded users
 for (const u of users) {
@@ -1732,7 +1732,7 @@ function loadInitialOrdersAndMessages() {
         orders = parsed;
         orders.forEach(registerOrder);
       } else {
-        orders = [...SEED_ORDERS];
+        orders = [...SEED_ORDERS] as any;
         orders.forEach(registerOrder);
       }
     } catch (e) {
@@ -1788,13 +1788,13 @@ function loadInitialOrdersAndMessages() {
           return true;
         });
       } else {
-        messages = [...SEED_MESSAGES];
+        messages = [...SEED_MESSAGES] as any;
       }
     } catch (e) {
       handleCorruption(MESSAGES_FILE, e);
     }
   } else {
-    messages = [...SEED_MESSAGES];
+    messages = [...SEED_MESSAGES] as any;
   }
   saveMessagesToDisk();
 

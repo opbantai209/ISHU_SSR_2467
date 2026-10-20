@@ -1457,9 +1457,21 @@ reviews.push(
   }
 );
 
-// Write JSON Files
+// Write JSON Files & Complete Seed Dataset
 fs.writeFileSync(path.join(__dirname, "../data/workstream_orders.json"), JSON.stringify(orders, null, 2), "utf-8");
 fs.writeFileSync(path.join(__dirname, "../data/workstream_messages.json"), JSON.stringify(messages, null, 2), "utf-8");
 fs.writeFileSync(path.join(__dirname, "../data/workstream_reviews.json"), JSON.stringify(reviews, null, 2), "utf-8");
+fs.writeFileSync(path.join(__dirname, "../data/workstream_projects.json"), JSON.stringify(projects, null, 2), "utf-8");
 
-console.log("SUCCESS: Persistent JSON files created!");
+const seedContent = `export const SEED_USERS = ${JSON.stringify(users, null, 2)};
+export const SEED_GIGS = ${JSON.stringify(gigs, null, 2)};
+export const SEED_PROJECTS = ${JSON.stringify(projects, null, 2)};
+export const SEED_PROPOSALS = ${JSON.stringify(proposals, null, 2)};
+export const SEED_ORDERS = ${JSON.stringify(orders, null, 2)};
+export const SEED_REVIEWS = ${JSON.stringify(reviews, null, 2)};
+export const SEED_MESSAGES = ${JSON.stringify(messages, null, 2)};
+`;
+
+fs.writeFileSync(path.join(__dirname, "../src/data/completeSeedDataset.js"), seedContent, "utf-8");
+
+console.log("SUCCESS: Persistent JSON files and complete seed dataset generated!");
