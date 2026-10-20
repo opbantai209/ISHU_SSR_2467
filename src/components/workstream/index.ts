@@ -15,3 +15,4 @@ export * from './WorkstreamVideoCallModal';
 export * from './WorkstreamHeader';
 export * from './WorkstreamTabs';
 export * from './WorkstreamEmptyState';
+export * from './activityClassifier';

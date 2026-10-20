@@ -40,6 +40,14 @@ export interface WorkstreamMessage {
     reviewerRole?: string;
     rating?: number;
     comment?: string;
+    version?: number;
+    notes?: string;
+    reason?: string;
+    oldDate?: string;
+    newDueDate?: string;
+    status?: string;
+    reply?: any;
+    [key: string]: any;
   };
   status?: 'sending' | 'sent' | 'failed';
 }

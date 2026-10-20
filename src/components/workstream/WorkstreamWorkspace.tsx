@@ -465,6 +465,7 @@ export const WorkstreamWorkspace: React.FC<WorkstreamWorkspaceProps> = ({
               {activeSubTab === 'activity' ? (
                 <>
                   <WorkstreamActivityStream
+                    order={order}
                     messages={messages}
                     currentUserId={currentUser?.id}
                     usersList={usersList}
@@ -481,6 +482,12 @@ export const WorkstreamWorkspace: React.FC<WorkstreamWorkspaceProps> = ({
                     onRequestRevisionFromInvoice={() => setIsRevisionModalOpen(true)}
                     onReplyReview={handleReplyReview}
                     onRetryMessage={onRetryMessage}
+                    onOpenDeliverModal={() => setIsDeliverModalOpen(true)}
+                    onOpenReleaseModal={() => setIsReleaseModalOpen(true)}
+                    onOpenRevisionModal={() => setIsRevisionModalOpen(true)}
+                    onOpenReviewModal={() => setIsReviewModalOpen(true)}
+                    onOpenDisputeModal={() => setIsDisputeModalOpen(true)}
+                    onStartVideoCall={() => setIsVideoCallModalOpen(true)}
                   />
                   <WorkstreamMessageInput
                     key={order.id}

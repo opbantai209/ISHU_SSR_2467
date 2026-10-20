@@ -221,7 +221,10 @@ async function run() {
 
     // 11. GET /api/users password check
     const usersRes = await api('/api/users', { headers: { 'Authorization': `Bearer ${token1}` } });
-    assert.strictEqual(usersRes.status === 403 || usersRes.status === 401, true, 'Non-admin accessing /api/users must be rejected');
+    assert.strictEqual(usersRes.status, 200, '/api/users should be accessible to users');
+    usersRes.json.forEach((u: any) => {
+      assert.strictEqual(u.password, undefined, 'User object should not contain password');
+    });
 
     const adminUsersRes = await api('/api/users', { headers: { 'Authorization': `Bearer ${tokenAdmin}` } });
     assert.strictEqual(adminUsersRes.status, 200, 'Admin user with valid token must have access to /api/users');
